@@ -1,0 +1,79 @@
+<div class="card m-5">
+    <div class="card-header" style="background-color: #3b5998;">               
+        <h3 style="color: aliceblue; padding-top: 10px;">Habilidades</h3>
+    </div>
+    <div class="card-body">
+      <div class="container">                   
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+
+              <div class="col" *ngFor="let item of habilidades">
+                <div class="card">
+                  <div class="card-body" style="text-align: center;">
+                    <img style="height:65px" src={{item.foto}} alt="">
+                    <h6 class="card-title mt-1">{{item.nombre}}</h6>
+                    <h6 class="card-title mt-1" style="color: green;">{{item.porcentaje}}%</h6>
+                    <div class="skillBar">
+                        <div class="skillBarContainer">
+                          <div class={{clase+item.porcentaje}}></div>
+                        </div>
+                    </div>
+
+                    <button (click)="seleccionarHabilidad(item.id)" onclick="modalHabilidadesFoto()" class="btn btn-success btn-sm" style="margin-right: 5px;">
+                      <i class="fa fa-camera" aria-hidden="true"></i></button>
+                    <button (click)="seleccionarHabilidad(item.id)" onclick="modalDatosHabilidad()" class="btn btn-success btn-sm" style="margin-right: 5px;">
+                      <i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button (click)="eliminarHabilidad(item.id)" class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="modalDatosHabilidad()" (click)="limpiarHabilidad()" class="btn btn-success btn-sm mt-2">
+          <i class="fa fa-plus" aria-hidden="true"></i> Nueva
+        </button>                  
+      </div>     
+    </div>                  
+</div>
+
+<div id="modalHabilidadesFoto" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cambiar Foto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input class="form-control" (change)="capturarImagen($event)" type="file" placeholder="subir imagen">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="guardarPerfil" (click)="guardarFoto()" data-bs-dismiss="modal" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalDatosHabilidad" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cambiar Foto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label mt-2">Nombre</label>
+        <input [(ngModel)]="seleccionado.nombre" type="text" class="form-control">
+        <label class="form-label mt-2">Tipo (hard/soft)</label>
+        <input [(ngModel)]="seleccionado.tipo" type="text" class="form-control">
+        <label class="form-label mt-2">Porcentaje</label>
+        <input class="form-control" type="number" [(ngModel)]="seleccionado.porcentaje">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="guardarInfo()" id="guardarPerfil" data-bs-dismiss="modal" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

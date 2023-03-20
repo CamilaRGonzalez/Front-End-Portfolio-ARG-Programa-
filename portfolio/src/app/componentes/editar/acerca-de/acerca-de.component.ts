@@ -17,6 +17,7 @@ export class AcercaDeComponent implements OnInit{
     this.obtenerPersona();
   }
 
+  //obtiene la información de la tabla persona del back end y se la asigna a la variable persona
   private obtenerPersona(){
     this.service.getPersona("1").subscribe(
       res=> {this.persona = res;
@@ -25,11 +26,13 @@ export class AcercaDeComponent implements OnInit{
       )
   }
 
+  //captura archivo del input form control
   public capturarImagen(event: any):any{
     this.foto = event.target.files[0];
     
   }
 
+  //adjunta el archivo a un FormData y se envía al back end
   public guardarFoto():any{
     let formulario = new FormData();
     formulario.append("archivo",this.foto);
@@ -41,6 +44,7 @@ export class AcercaDeComponent implements OnInit{
     );
   }
 
+  //envía al back end la informacion de la variable persona cargada en el formulario editar
   public guardarInfo():any{
     this.service.editarPersona(this.persona).subscribe(
       res => this.ngOnInit(),
