@@ -1,0 +1,95 @@
+<div class="card m-5">
+    <div class="card-header" style="background-color: #3b5998;">               
+        <h3 style="color: aliceblue; padding-top: 10px;">Proyectos</h3>
+    </div>
+    
+    <div class="card-body">
+        <div class="container">
+            <div class="row mt-5" *ngFor="let item of proyectos">
+
+                <!--Informacion proyecto-->
+                <div class="col-sm-6" style="align-self: end;">
+                    <div>
+                        <h4><strong>{{item.nombre}}</strong></h4>
+                    </div>
+                    <div class="mt-3">
+                        <p><strong>Tecnologías</strong></p>
+                        <p>{{item.tecnologias}}</p>
+                        <p><strong>Descripción</strong></p>
+                        <p>{{item.descripcion}}</p>
+                    </div>                  
+                </div>
+
+                <!--Foto proyecto-->
+                <div class="col" style="text-align: center; align-self:center;">                 
+                  <img style="width: 100%;" src={{item.foto}} alt="">                 
+                </div>
+
+                <!--Botones-->
+                <div class="row">
+                  <div class="col">
+                      <a href={{item.link}} target="_blank">
+                          <button class="btn btn-sm" style="background-color: #3b5998; color:white;"><i class="fa fa-eye" aria-hidden="true"></i> Ver Proyecto</button>
+                      </a>
+                  </div>
+                  <div class="col" style="text-align: end;">
+                      <button onclick="modalProyectosFoto()" (click)="seleccionarProyecto(item.id)" class="btn btn-success btn-sm" style="margin-right: 5px;">
+                        <i class="fa fa-camera" aria-hidden="true"></i> Editar</button>
+                      <button onclick="modalDatosProyectos()" (click)="seleccionarProyecto(item.id)" class="btn btn-success btn-sm" style="margin-right: 5px;">
+                        <i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
+                      <button (click)="eliminarProyecto(item.id)" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</button>
+                  </div>
+                </div> 
+            </div>
+
+            <!--Boton agregar-->
+            <div class="mt-2">
+              <button class="btn btn-success btn-sm" onclick="modalDatosProyectos()" (click)="limpiarProyecto()">
+                <i class="fa fa-plus" aria-hidden="true"></i> Nuevo</button>
+            </div>  
+        </div>                   
+    </div>
+</div>
+
+<div id="modalDatosProyectos" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label mt-2">Nombre proyecto</label>
+          <input [(ngModel)]="seleccionado.nombre" type="text" class="form-control">
+          <label class="form-label mt-2">Tecnologías</label>
+          <input [(ngModel)]="seleccionado.tecnologias" type="text" class="form-control">
+          <label class="form-label mt-2">Link</label>
+          <input [(ngModel)]="seleccionado.link" type="text" class="form-control">
+          <label class="form-label mt-2">Descripción</label>
+          <textarea [(ngModel)]="seleccionado.descripcion" class="form-control"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="guardarInfo()" id="guardarPerfil" data-bs-dismiss="modal" type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalProyectosFoto" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cambiar Foto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control" (change)="capturarImagen($event)" type="file" placeholder="subir imagen">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="guardarPerfil" (click)="guardarFoto()" data-bs-dismiss="modal" type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>

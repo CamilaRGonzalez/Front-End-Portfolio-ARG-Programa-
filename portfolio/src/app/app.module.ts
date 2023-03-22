@@ -11,6 +11,9 @@ import { AcercaDeComponent } from './componentes/editar/acerca-de/acerca-de.comp
 import { FormsModule } from '@angular/forms';
 import { EducacionComponent } from './componentes/editar/educacion/educacion.component';
 import { HabilidadesComponent } from './componentes/editar/habilidades/habilidades.component';
+import { ProyectosComponent } from './componentes/editar/proyectos/proyectos.component';
+import { EditarComponent } from './componentes/total-editar/editar/editar.component';
+import { ReadOnlyComponent } from './componentes/read-only/read-only/read-only.component';
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import { HabilidadesComponent } from './componentes/editar/habilidades/habilidad
     AcercaDeComponent,
     EducacionComponent,
     HabilidadesComponent,
+    ProyectosComponent,
+    EditarComponent,
+    ReadOnlyComponent,
 
   ],
   imports: [
