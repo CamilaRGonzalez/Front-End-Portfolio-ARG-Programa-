@@ -23,6 +23,9 @@
                                             <mat-error *ngIf="pass.invalid">Ingrese su contraseña</mat-error>
                                         </mat-form-field>
                                     </div>
+                                    <div *ngIf="error" class="mb-1">
+                                        <label style="color: red;">Usuario o contraseña incorrecta</label>
+                                    </div>
                                     <div>   
                                         <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Ingresar</button>
                                     </div>                                   

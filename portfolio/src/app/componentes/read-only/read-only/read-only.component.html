@@ -42,14 +42,14 @@
                 <!--Columna foto, nombre y título-->
                 <div class="col-sm-4" style="text-align: center;">
                     <img style="height:150px; width:150px; border-radius:50%;" src={{persona.foto}} alt="">                     
-                    <h4 class="mt-2">{{persona.nombreyapellido}}</h4>
-                    <h6 class="mt-2">{{persona.titulo}}</h6>
+                    <h2 class="mt-2">{{persona.nombreyapellido}}</h2>
+                    <h4 class="mt-2">{{persona.titulo}}</h4>
                 </div>
 
                 <!--Columna sobre mí-->
                 <div class="col" style="place-self:center;">
                     <h2>Sobre mí</h2>
-                    <p class="mt-3">{{persona.sobremi}}</p>
+                    <h4 class="mt-3">{{persona.sobremi}}</h4>
                 </div>               
             </div>
         </div>          
@@ -60,7 +60,7 @@
 <div class="card m-5">
     <!--Cabecera sección-->
     <div class="card-header" style="background-color: #3b5998;">               
-        <h3 style="color: aliceblue; padding-top: 10px;">Educación</h3>
+        <h1 style="color: aliceblue; padding-top: 10px;">Educación</h1>
     </div>
 
     <div class="mb-3">
@@ -77,13 +77,13 @@
                 <!--Columna informacion-->
                 <div class="col" style="align-self: center;">
                     <div>
-                        <h4>{{item.titulo}}</h4>
+                        <h2>{{item.titulo}}</h2>
                     </div>
                     <div class="mt-3">
                       <div>
-                        <p><strong>Institución:</strong> {{item.institucion}}</p>
-                        <p><strong>Fecha de Inicio:</strong> {{item.fechainicio}}</p>
-                        <p><strong>Estado:</strong>{{item.estado}}</p>
+                        <h4><strong>Institución:</strong> {{item.institucion}}</h4>
+                        <h4><strong>Fecha de Inicio:</strong> {{item.fechainicio}}</h4>
+                        <h4><strong>Estado:</strong>{{item.estado}}</h4>
                       </div>                                              
                     </div>   
                 </div>
@@ -96,18 +96,17 @@
 <!--Habilidades-->
 <div class="card m-5">
     <div class="card-header" style="background-color: #3b5998;">               
-        <h3 style="color: aliceblue; padding-top: 10px;">Habilidades</h3>
+        <h1 style="color: aliceblue; padding-top: 10px;">Habilidades</h1>
     </div>
     <div class="card-body">
       <div class="container">                   
         <div class="row row-cols-1 row-cols-md-5 g-4">
-
               <div class="col" *ngFor="let item of habilidades">
                 <div class="card">
                   <div class="card-body" style="text-align: center;">
                     <img style="height:65px" src={{item.foto}} alt="">
-                    <h6 class="card-title mt-1">{{item.nombre}}</h6>
-                    <h6 class="card-title mt-1" style="color: green;">{{item.porcentaje}}%</h6>
+                    <h4 class="card-title mt-1">{{item.nombre}}</h4>
+                    <h4 class="card-title mt-1" style="color: green;">{{item.porcentaje}}%</h4>
                     <div class="skillBar">
                         <div class="skillBarContainer">
                           <div class={{clase+item.porcentaje}}></div>
@@ -125,7 +124,7 @@
 
 <div class="card m-5">
     <div class="card-header" style="background-color: #3b5998;">               
-        <h3 style="color: aliceblue; padding-top: 10px;">Proyectos</h3>
+        <h1 style="color: aliceblue; padding-top: 10px;">Proyectos</h1>
     </div>
     
     <div class="card-body">
@@ -135,13 +134,13 @@
                 <!--Informacion proyecto-->
                 <div class="col-sm-6" style="align-self: end;">
                     <div>
-                        <h4><strong>{{item.nombre}}</strong></h4>
+                        <h2><strong>{{item.nombre}}</strong></h2>
                     </div>
                     <div class="mt-3">
-                        <p><strong>Tecnologías</strong></p>
-                        <p>{{item.tecnologias}}</p>
-                        <p><strong>Descripción</strong></p>
-                        <p>{{item.descripcion}}</p>
+                        <h4><strong>Tecnologías</strong></h4>
+                        <h4>{{item.tecnologias}}</h4>
+                        <h4><strong>Descripción</strong></h4>
+                        <h4>{{item.descripcion}}</h4>
                     </div>                  
                 </div>
 

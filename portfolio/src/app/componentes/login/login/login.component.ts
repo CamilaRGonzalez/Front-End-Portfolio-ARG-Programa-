@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit{
   
   email = new FormControl('', [Validators.required]);
   pass = new FormControl('', [Validators.required]);
+  error = false;
 
   loginForm = new FormGroup({
     email : this.email,
@@ -37,6 +38,9 @@ export class LoginComponent implements OnInit{
     this.loginService.login(formulario).subscribe(res => {
       if(res.login === 1){
         this.router.navigate(['/editar']);
+      }
+      else{
+        this.error = true;
       }
     })
   }

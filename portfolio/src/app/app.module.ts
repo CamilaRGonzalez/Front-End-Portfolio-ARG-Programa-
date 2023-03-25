@@ -41,7 +41,7 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule
   ],
