@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Habilidad } from '../modelos/habilidad';
+import { linkBack } from '../modelos/back';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HabilidadesService {
 
-  url = "http://localhost:8080/habilidades/"
+  url = linkBack.url + "habilidades/"
   constructor(private http: HttpClient) { }
 
   getHabilidades(): Observable<Habilidad[]>{

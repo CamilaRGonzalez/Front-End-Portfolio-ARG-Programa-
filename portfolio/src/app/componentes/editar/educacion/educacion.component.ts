@@ -44,7 +44,8 @@ export class EducacionComponent implements OnInit{
     let arr = this.educacion.filter(educ => educ.id == id)
     //pasa fecha a formato string YYYY-MM-dd
     let fechaformateada = this.formatearFecha(arr[0].fechainicio);
-
+    console.log(arr[0].fechainicio);
+    console.log(fechaformateada);
     //asigna a seleccionado toda la información del item filtrado
     this.seleccionado.id = arr[0].id;
     this.seleccionado.titulo = arr[0].titulo;
@@ -118,7 +119,7 @@ export class EducacionComponent implements OnInit{
     {
         if(fecha[i] != "/")
         {
-            separada[index] = fecha[i]
+            separada[index] += fecha[i]
         }
         else{
             index++;

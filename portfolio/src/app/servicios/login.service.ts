@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Respuesta } from '../modelos/response';
+import { linkBack } from '../modelos/back';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { Respuesta } from '../modelos/response';
 })
 export class LoginService {
 
-  url = "http://localhost:8080/login/";
+  url = linkBack.url + "login/";
   public usuarioSubject : BehaviorSubject<String | null>;
 
   //si el usuario está logueado, su nombre de usuario está guargado en el local storage

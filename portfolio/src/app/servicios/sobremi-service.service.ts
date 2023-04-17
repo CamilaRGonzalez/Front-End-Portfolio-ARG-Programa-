@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Persona } from '../modelos/persona';
+import { linkBack } from '../modelos/back';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SobremiServiceService {
 
-  url = "http://localhost:8080/personas/"
+  url = linkBack.url + "personas/"
   constructor(private http: HttpClient) { }
 
   getPersona(idUser: string):Observable<any>{    

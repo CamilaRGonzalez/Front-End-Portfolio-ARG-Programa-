@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Educacion } from '../modelos/educacion';
+import { linkBack } from '../modelos/back';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EducacionService {
 
-  private url="http://localhost:8080/educacion/"
+  private url= linkBack.url +"educacion/"
 
   constructor(private http:HttpClient) { }
 
